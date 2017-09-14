@@ -29,6 +29,15 @@
             stroke: black;
             stroke-width: 2px;
         }
+        .tooltip {
+            position: absolute;
+            width: 50px;
+            height: 15px;
+            pointer-events: none;
+            background-color: blue;
+            color: #fff;
+            border-radius: 6px;
+        }
 
         /* Styles that clean up the layout;
          * you can ignore these */
@@ -42,26 +51,28 @@
             padding: 1em;
         }
     </style>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script type="application/javascript" src="script.js"></script>
 </head>
 <body onload="changeData()">
 
 <h3>CS-5630 / CS-6630 Homework 3</h3>
 <address>
-    <span>Your Name</span>
-    <span>Your Email Address</span>
-    <span>Your uID</span>
+    <span>Tanveen Singh Bharaj</span>
+    <span>u1126027@utah.edu</span>
+    <span>u1126027</span>
 </address>
 <br>
 <hr>
 <br>
 
 <span>
-    <button>Staircase</button>
+    <button onclick="staircase()">Staircase</button>
 </span>
 
 <span>
     <label>Dataset:</label>
-    <select id="dataset">
+    <select id="dataset" onchange="changeData()">
         <option value="anscombe_I">Anscombe's Quartet I</option>
         <option selected value="anscombe_II">Anscombe's Quartet II</option>
         <option value="anscombe_III">Anscombe's Quartet III</option>
@@ -70,15 +81,15 @@
 </span>
 
 <span>
-    <input type="checkbox" id="random"> Random Subset
+    <input type="checkbox" id="random" onclick="randomSubset()"> Random Subset
 </span>
 
 <br>
 
 <div>
     <h2>Bar Charts</h2>
-    <svg width="200" height="200">
-        <g transform="translate(0, 200) scale(1, -1)" class="barChart" >
+    <svg width="200" height="200" >
+        <g transform="translate(0, 200) scale(1, -1)" class="barChart" id="first_bar_chart">
             <rect x="10" y="0" width="10" height="100"></rect>
             <rect x="20" y="0" width="10" height="80"></rect>
             <rect x="30" y="0" width="10" height="130"></rect>
@@ -93,8 +104,8 @@
         </g>
     </svg>
 
-    <svg width="200" height="200">
-        <g transform="translate(0, 200) scale(1, -1)" class="barChart" >
+    <svg width="200" height="200" >
+        <g transform="translate(0, 200) scale(1, -1)" class="barChart" id="second_bar_chart" >
             <rect x="10" y="0" width="10" height="91"></rect>
             <rect x="20" y="0" width="10" height="81"></rect>
             <rect x="30" y="0" width="10" height="87"></rect>
@@ -112,16 +123,15 @@
 
 <div>
     <h2>Line Charts</h2>
-
     <svg width="200" height="200">
-        <g transform="translate(10, 200) scale(1, -1)">
+        <g transform="translate(10, 200) scale(1, -1)" id="first_line_chart">
             <path class="lines"
                   d="M 0 100 L 10 80 L 20 130 L 30 90 L 40 110 L 50 140 L 60 60 L 70 40 L 80 120 L 90 70 L 100 50"></path>
         </g>
     </svg>
 
     <svg width="200" height="200">
-        <g class="lines" transform="translate(10, 200) scale(1, -1)">
+        <g class="lines" transform="translate(10, 200) scale(1, -1)" id="second_line_chart">
             <path class="lines"
                   d="M 0 91 L 10 81 L 20 87 L 30 88 L 40 93 L 50 81 L 60 61 L 70 31 L 80 91 L 90 73 L 100 47"></path>
         </g>
@@ -132,14 +142,14 @@
     <h2>Area Charts</h2>
 
     <svg width="200" height="200">
-        <g transform="translate(10, 200) scale(1, -1)">
+        <g transform="translate(10, 200) scale(1, -1)" id="first_area_chart">
             <path  class="areas"
                   d="M 0 0 L 0 100 L 10 80 L 20 130 L 30 90 L 40 110 L 50 140 L 60 60 L 70 40 L 80 120 L 90 70 L 100 50  L 100 0"></path>
         </g>
     </svg>
 
     <svg width="200" height="200">
-        <g transform="translate(10, 200) scale(1, -1)">
+        <g transform="translate(10, 200) scale(1, -1)" id="second_area_chart">
             <path class="areas"
                   d="M 0 0 L 0 91 L 10 81 L 20 87 L 30 88 L 40 93 L 50 81 L 60 61 L 70 31 L 80 91 L 90 73 L 100 47 L 100 0"></path>
         </g>
@@ -151,7 +161,7 @@
 
     <svg width="200" height="200">
         <rect x="0" y="0" width="200" height="200" class="frame"></rect>
-        <g transform="translate(0, 200) scale(1, -1)">
+        <g transform="translate(0, 200) scale(1, -1)" id="scatter_plot">
             <circle cx="100" cy="91" r="5"></circle>
             <circle cx="80" cy="81" r="5"></circle>
             <circle cx="130" cy="87" r="5"></circle>
@@ -167,4 +177,5 @@
     </svg>
 </div>
 </body>
+
 </html>
