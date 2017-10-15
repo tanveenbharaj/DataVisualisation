@@ -19,14 +19,15 @@ d3.json('data/fifa-matches.json',function(error,data){
         tree.createTree(csvData);
 
         //Create Table Object and pass in reference to tree object (for hover linking)
-        let table = new Table(data,tree);
-
+        table = new Table(data,tree);
         table.createTable();
         table.updateTable();
     });
 });
 
-
+function sort(headerName) {
+    table.sort(headerName);
+}
 
 // // // ********************** HACKER VERSION ***************************
 // /**

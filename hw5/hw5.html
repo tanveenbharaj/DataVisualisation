@@ -14,7 +14,7 @@
     <header>
         <img src="assets/fifa_brazil_logo.jpg" alt="Brazil WC Russia Logo" id="logo"/>
         <h1>Exploring Match Statistics for 2014 World Cup CS-5630/6630 Homework</h1>
-        <div>Name: YOURNAME; E-Mail: YOUREMAIL; UID: u0123456</div>
+        <div>Name: Tanveen Singh Bharaj; E-Mail: u1126027@utah.edu; UID: u1126027</div>
     </header>
 
 
@@ -24,34 +24,35 @@
         <table id="matchTable">
             <thead>
             <tr>
-                <th>Team</th>
-                <td style="text-align:center"> Goals <span class="glyphicon glyphicon-sort"></span><br/></td>
-                <td>Round/Result</td>
-                <td>Wins</td>
-                <td>Losses</td>
-                <td>Total Games</td>
+                <th onclick="sort('team')">Team</th>
+                <td style="text-align:center" onclick="sort('goals')"> Goals <span class="glyphicon glyphicon-sort"></span><br/></td>
+                <td onclick="sort('round')">Round/Result</td>
+                <td onclick="sort('wins')">Wins</td>
+                <td onclick="sort('losses')">Losses</td>
+                <td onclick="sort('totalGames')">Total Games</td>
             </tr>
             <tr>
                 <td></td>
                 <td id="goalHeader"></td>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="matchTableBody">
 
             </tbody>
         </table>
 
     </div>
-    <div class="view">
+    <div class="view" style="margin-left:100px;">
 
 
         <h2>Second Stage</h2>
-        <svg width="500" height="900">
+        <svg width="700" height="900">
             <g id="tree"></g>
         </svg>
     </div>
 
 </div>
+
 <!--<script type="application/javascript" src="load_hacker.js"></script>-->
 <script type="application/javascript" src="js/tree.js"></script>
 <script type="application/javascript" src="js/table.js"></script>
