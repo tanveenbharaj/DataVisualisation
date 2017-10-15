@@ -14,11 +14,14 @@
 </head>
 
 <body>
+<style>
+    .bar { fill: steelblue; }
+</style>
 <div class="container">
     <header>
         <img src="assets/fifa_russia_logo.png" alt="Fifa WC Russia Logo" id="logo"/>
         <h1>Exploring FIFA World Cup Statistics: CS-5630/6630 Homework 4</h1>
-        <div>Name: YOURNAME; E-Mail: YOUREMAIL; UID: u0123456</div>
+        <div>Name: Tanveen; E-Mail: u1126027@utah.edu; UID: u1126027</div>
     </header>
 
     <div id="details" class="view">
@@ -31,13 +34,20 @@
         <span id="silver"></span>
         <h3>Teams</h3>
         <span id="teams"></span>
+
+        <div id="extra" class="view" style="background-color: #d9d9d9;">
+            <h2 id="country_participated">Years Participated by Country</h2>
+            <span id="country"></span>
+        </div>
     </div>
+
+
 
     <div id="bar-chart" class="view">
         <h2 class="">Bar Chart</h2>
         <div id="plot-selector">
             <label>Plot:</label>
-            <select id="dataset" onchange="chooseData()">
+            <select id="dataset" onChange="chooseData()">
                 <option selected value="attendance">Attendance</option>
                 <option value="teams">Teams</option>
                 <option value="matches">Matches</option>
@@ -45,7 +55,7 @@
             </select>
         </div>
 
-        <svg width="500" height="400" id="barChart">
+        <svg width="500" height="400" id="barChart" style="padding: 4em">
             <g id="xAxis"></g>
             <g id="yAxis"></g>
             <g id="bars"></g>
@@ -68,7 +78,10 @@
 
         <svg width="900" height="600">
             <g id="map">            </g>
-            <g id="points"></g>
+            <g id="points">
+                <g id="ru_points"></g>
+                <g id="win_points"></g>
+            </g>
         </svg>
     </div>
 </div>
