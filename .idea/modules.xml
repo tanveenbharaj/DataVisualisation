@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/2017-dataviscourse-homework.iml" filepath="$PROJECT_DIR$/.idea/2017-dataviscourse-homework.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/2017-dataviscourse-homework-hw4.iml" filepath="$PROJECT_DIR$/.idea/2017-dataviscourse-homework-hw4.iml" />
+>>>>>>> 2040eae80dcf597bb73ea3cfafb4feb4649c3cbb
     </modules>
   </component>
 </project>
