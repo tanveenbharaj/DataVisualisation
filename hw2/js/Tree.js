@@ -1,5 +1,43 @@
 /** Class representing a Tree. */
 class Tree {
+<<<<<<< HEAD
+	/**
+	 * Creates a Tree Object
+	 * parentNode, children, parentName,level,position
+	 * @param {json[]} json - array of json object with name and parent fields
+	 */
+	constructor(json) {
+		
+	}
+
+	/**
+	 * Function that builds a tree from a list of nodes with parent refs
+	 */
+	buildTree() {
+
+        //Assign Positions and Levels by making calls to assignPosition() and assignLevel()
+    }
+
+	/**
+	 * Recursive function that assign positions to each node
+	 */
+	assignPosition(node, position) {
+		
+	}
+
+	/**
+	 * Recursive function that assign levels to each node
+	 */
+	assignLevel(node, level) {
+		
+	}
+
+	/**
+	 * Function that renders the tree
+	 */
+	renderTree() {
+        
+=======
     /**
      * Creates a Tree Object
      * parentNode, children, parentName,level,position
@@ -180,6 +218,7 @@ class Tree {
 
         console.log(circles);
 
+>>>>>>> aa965298bd3e550ef652951dacb20719a8671f39
     }
 
 }
