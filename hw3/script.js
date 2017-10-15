@@ -6,13 +6,11 @@
 function staircase() {
     // ****** TODO: PART II ******
     var selection = document.getElementById("first_bar_chart");
-    var childNodes = selection.childNodes;
+    var childNodes = selection.children;
     var i = 0;
-    var j = 0;
-    for (i = 1; i < childNodes.length; i += 2) {
+    for (i = 0; i < childNodes.length; i ++) {
         if (childNodes[i] != null) {
-            childNodes[i].setAttribute('height', j * 10);
-            j++;
+            childNodes[i].setAttribute('height', i * 10);
         }
     }
 
@@ -71,7 +69,7 @@ function update(error, data) {
 
     bars.exit().attr("opacity", 1)
         .transition()
-        .duration(3000)
+        .duration(2000)
         .attr("opacity", 0)
         .remove();
 
@@ -80,7 +78,7 @@ function update(error, data) {
         .merge(bars);
 
     bars.transition()
-        .duration(3000)
+        .duration(2000)
         .attr("y", 0)
         .attr("x", function(d, i) {
             return iScale(i);
@@ -107,7 +105,7 @@ function update(error, data) {
 
     bars.exit().attr("opacity", 1)
         .transition()
-        .duration(3000)
+        .duration(2000)
         .attr("opacity", 0)
         .remove();
 
@@ -115,7 +113,7 @@ function update(error, data) {
         .merge(bars);
 
     bars.transition()
-        .duration(3000)
+        .duration(2000)
         .attr("y", 0)
         .attr("x", function(d, i) {
             return iScale(i);
@@ -145,14 +143,14 @@ function update(error, data) {
 
     a_line.exit().attr("opacity", 1)
         .transition()
-        .duration(3000)
+        .duration(2000)
         .attr("opacity", 0).remove();
 
     var newLine = a_line.enter().append("path");
     a_line = a_line.merge(newLine);
 
     a_line.transition()
-        .duration(3000)
+        .duration(2000)
         .attr('d', aLineGenerator(data))
         .attr("class", "lines");
 
@@ -168,13 +166,13 @@ function update(error, data) {
 
     b_line.exit().attr("opacity", 1)
         .transition()
-        .duration(3000)
+        .duration(2000)
         .attr("opacity", 0).remove();
 
     b_line = b_line.enter().append("path").merge(b_line);
 
     b_line.transition()
-        .duration(3000).attr('d', bLineGenerator(data)).attr("class", "lines");
+        .duration(2000).attr('d', bLineGenerator(data)).attr("class", "lines");
 
     // TODO: Select and update the 'a' area chart path using this area generator
     let aAreaGenerator = d3.area()
@@ -188,13 +186,13 @@ function update(error, data) {
 
     a_path.exit().attr("opacity", 1)
         .transition()
-        .duration(3000)
+        .duration(2000)
         .attr("opacity", 0).remove();
 
     a_path = a_path.enter().append("path").merge(a_path);
 
     a_path.transition()
-        .duration(3000).attr('d', aAreaGenerator(data)).attr("class", "areas");
+        .duration(2000).attr('d', aAreaGenerator(data)).attr("class", "areas");
 
     // TODO: Select and update the 'b' area chart path (create your own generator)
 
@@ -209,13 +207,13 @@ function update(error, data) {
 
     a_path.exit().attr("opacity", 1)
         .transition()
-        .duration(3000)
+        .duration(2000)
         .attr("opacity", 0).remove();
 
     a_path = a_path.enter().append("path").merge(a_path);
 
     a_path.transition()
-        .duration(3000).attr('d', bAreaGenerator(data)).attr("class", "areas");
+        .duration(2000).attr('d', bAreaGenerator(data)).attr("class", "areas");
 
     // TODO: Select and update the scatterplot points
 
@@ -224,12 +222,12 @@ function update(error, data) {
         .data(data);
     circles.exit().attr("opacity", 1)
         .transition()
-        .duration(3000)
+        .duration(2000)
         .attr("opacity", 0).remove();
     var newData = circles.enter().append("circle");
     circles = newData.merge(circles);
     circles.transition()
-        .duration(3000)
+        .duration(2000)
         .attr("cx", function(d) {
             return d.a * 10;
         })
